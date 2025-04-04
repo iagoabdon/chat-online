@@ -1,0 +1,15 @@
+{% extends 'networks/base.html' %}
+
+
+{% block corpo %}
+<h1>Usuários cadastrados</h1>
+<ul>
+    {% for usuario in usuarios %}
+        <li>{{ usuario.username }} - {{ usuario.first_name }} {{ usuario.last_name }}</li>
+    {% empty %}
+        <li>Nenhum usuário encontrado.</li>
+    {% endfor %}
+</ul>
+
+  
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'networks/base.html' %}
+
+{% block corpo %} <!-- O conteúdo específico de cada página será inserido aqui -->
+<h1>Lista de Dispositivos</h1>
+
+<!-- Formulário para adicionar usuário -->
+<form action="{% url 'create_usuarios' %}" method="post">
+    {% csrf_token %}
+    <label>Username:</label>
+    <input type="text" name="username" required><br>
+
+    <label>Primeiro nome:</label>
+    <input type="text" name="first_name" required><br>
+
+    <label>Sobrenome:</label>
+    <input type="text" name="last_name" required><br>
+
+    <label>Email:</label>
+    <input type="email" name="email" required><br>
+
+    <label>Senha:</label>
+    <input type="password" name="password" required><br>
+
+    <input type="submit" value="Cadastrar">
+</form>
+
+<hr>
+
+<!-- Lista de usuários -->
+<ul>
+    {% for usuario in usuarios %}
+        <li><strong>{{ usuario.username }}</strong> - {{ usuario.first_name }} {{ usuario.last_name }}</li>
+    {% empty %}
+        <li>Nenhum usuário encontrado.</li>
+    {% endfor %}
+</ul>
+{% endblock %} 
