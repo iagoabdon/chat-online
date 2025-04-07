@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from networks.models import UserData
 from django.http import HttpResponse 
-from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
 
 
@@ -32,5 +33,33 @@ def create_usuarios(request):
             email=email,
             password=password
         )
+        return redirect('login_usuarios')
 
     return render (request, 'networks/create_user.html',{'usuarios':usuarios})
+
+
+
+def login_usuarios(request):
+    if request.method == 'POST':
+     
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)  
+            return redirect('index') 
+        else:
+            messages.error(request, 'erro de validação')
+ 
+ 
+            return render(request, 'networks/login_user.html')
+                              
+
+    return render(request, 'networks/login_user.html')
+
+
+     
+     
+     
+    

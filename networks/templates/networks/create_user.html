@@ -29,7 +29,7 @@
 <!-- Lista de usuários -->
 <ul>
     {% for usuario in usuarios %}
-        <li><strong>{{ usuario.username }}</strong> - {{ usuario.first_name }} {{ usuario.last_name }}</li>
+        <li> - {{ usuario.first_name }} {{ usuario.last_name }} </li>
     {% empty %}
         <li>Nenhum usuário encontrado.</li>
     {% endfor %}

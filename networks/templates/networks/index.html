@@ -5,7 +5,7 @@
 <h1>Usuários cadastrados</h1>
 <ul>
     {% for usuario in usuarios %}
-        <li>{{ usuario.username }} - {{ usuario.first_name }} {{ usuario.last_name }}</li>
+        <li>{{ usuario.username }} - {{ usuario.first_name }} {{ usuario.last_name }} {{usuario.email}}</li>
     {% empty %}
         <li>Nenhum usuário encontrado.</li>
     {% endfor %}

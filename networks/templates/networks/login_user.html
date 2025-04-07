@@ -1,0 +1,15 @@
+{% extends 'networks/base.html' %}
+
+
+{% block corpo %}
+<form action="{% url 'login_usuarios' %}" method="post">
+    {% csrf_token %}
+    <label>Username:</label>
+    <input type="text" name="username" required><br>
+
+    <label>Senha:</label>
+    <input type="password" name="password" required><br>
+
+    <input type="submit" value="login">
+</form>
+{% endblock %}

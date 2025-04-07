@@ -23,5 +23,7 @@ urlpatterns = [
  
     path ('', views.index, name='index'),
     path ('create/', views.create_usuarios, name='create_usuarios'),
+    path ('login/', views.login_usuarios, name='login_usuarios'),
+
       
 ]
